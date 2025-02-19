@@ -107,6 +107,9 @@ vim.opt.number = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
+vim.opt.termguicolors = true
+vim.opt.background = 'dark'
+vim.opt.swapfile = false
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
@@ -894,9 +897,29 @@ require('lazy').setup({
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('tokyonight').setup {
+        transparent = true,
         styles = {
           comments = { italic = false }, -- Disable italics in comments
+          sidebars = 'transparent',
+          floats = 'transparent',
         },
+        on_colors = function(colors)
+          colors.bg = '#011628'
+          colors.bg_dark = '#011423'
+          colors.bg_float = '#011423'
+          colors.bg_highlight = '#143652'
+          colors.bg_popup = '#011423'
+          colors.bg_search = '#0A64AC'
+          colors.bg_sidebar = '#011423'
+          colors.bg_statusline = '#011423'
+          colors.bg_visual = '#275378'
+          colors.border = '#547998'
+          colors.fg = '#CBE0F0'
+          colors.fg_dark = '#B4D0E9'
+          colors.fg_float = '#CBE0F0'
+          colors.fg_gutter = '#627E97'
+          colors.fg_sidebar = '#B4D0E9'
+        end,
       }
 
       -- Load the colorscheme here.
